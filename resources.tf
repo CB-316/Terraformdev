@@ -9,17 +9,17 @@ terraform {
 
 resource "azurerm_resource_group" "devrg" {
     location = "westeurope"
-    name = "Devresgrp"  
+    name     = "Devresgrp"  
 }
 
 resource "azurerm_virtual_network" "tvnet" {
-    address_space = [ "10.10.0.0/16" ]
-    location = "westeurope"
-    name = "terravnet"
+    address_space       = [ "10.10.0.0/16" ]
+    location            = "westeurope"
+    name                = "terravnet"
     resource_group_name = azurerm_resource_group.devrg.name
 
     subnet {
-        name = "Subnet1"
+        name           = "Subnet1"
         address_prefix = "10.10.0.0/24"
     }
 
@@ -27,4 +27,7 @@ resource "azurerm_virtual_network" "tvnet" {
       "environment" = "dev"
     }
 }
+
+
+
 
