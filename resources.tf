@@ -50,6 +50,10 @@ resource "azurerm_storage_account" "tsa" {
   account_tier             = "Standard"
 
   resource_group_name = azurerm_resource_group.devrg.name
+
+  tags = {
+    "environment" = "dev"
+  }
  
  }
 
